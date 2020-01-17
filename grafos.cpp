@@ -121,8 +121,10 @@ void grafonori::lerGrafo(const string& s){//s=localização do ficheiro
       string aux;
       int n_nodos=0;
       size_t n_arestas = 0;
-      if(!ler) cerr<<"nao le\n";
-      while(1){
+      if(!ler){
+          throw errGrafo{"erro leitura"};
+      }
+    while(1){
           getline(ler,aux);
           graph.push_back(aux);
           if(ler.eof()) break;
